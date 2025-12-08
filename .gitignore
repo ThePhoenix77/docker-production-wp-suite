@@ -1,0 +1,85 @@
+# -----------------------------
+# Operating system artifacts
+# -----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+Thumbs.db
+
+# -----------------------------
+# Editor & IDE metadata
+# -----------------------------
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.nfs*
+
+# -----------------------------
+# Temporary & cache directories
+# -----------------------------
+.cache/
+tmp/
+temp/
+logs/
+log/
+*.log
+*.tmp
+*.pid
+*.seed
+*.pid.lock
+*.sock
+
+# -----------------------------
+# Environment & secrets files
+# -----------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+.docker/
+.direnv/
+.envrc
+
+# -----------------------------
+# Docker build output & overrides
+# -----------------------------
+docker-compose.override.yml
+docker-compose.local.yml
+.docker-compose*
+
+# -----------------------------
+# Host bind mounts & generated data
+# -----------------------------
+data/
+*/data/
+volumes/
+*/volumes/
+
+# -----------------------------
+# SSL keys & certificates generated at runtime
+# -----------------------------
+*.crt
+*.key
+*.pem
+
+# -----------------------------
+# WordPress runtime state (kept inside bind volumes)
+# -----------------------------
+wp-config.php
+wp-content/
+wp-cli.yml
+
+# -----------------------------
+# Archives
+# -----------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
