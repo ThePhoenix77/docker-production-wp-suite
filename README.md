@@ -1,4 +1,5 @@
-# Inception Infrastructure
+## Summary
+This repository hosts a Docker Compose-based infrastructure inspired by the 42 "Inception" project. It defines a multi-container environment that delivers a production-style WordPress deployment with HTTPS termination, database, caching, administration, file transfer, Docker UI management, and a bonus static website. Every service is built from handcrafted Dockerfiles using Debian Bullseye (or closely related) base images, ensuring full ownership of the software stack and transparent reproducibility.
 
 ## Table of Contents
 - [Project Summary](#project-summary)
@@ -26,9 +27,6 @@
 - [Data Persistence & Host Bindings](#data-persistence--host-bindings)
 - [Troubleshooting Checklist](#troubleshooting-checklist)
 - [Further Improvements](#further-improvements)
-
-## Project Summary
-This repository hosts a Docker Compose-based infrastructure inspired by the 42 "Inception" project. It defines a multi-container environment that delivers a production-style WordPress deployment with HTTPS termination, database, caching, administration, file transfer, Docker UI management, and a bonus static website. Every service is built from handcrafted Dockerfiles using Debian Bullseye (or closely related) base images, ensuring full ownership of the software stack and transparent reproducibility.
 
 ## High-Level Topology
 ```
