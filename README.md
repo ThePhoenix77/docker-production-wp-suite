@@ -2,7 +2,7 @@
 This repository hosts a Docker Compose-based infrastructure inspired by the 42 "Inception" project. It defines a multi-container environment that delivers a production-style WordPress deployment with HTTPS termination, database, caching, administration, file transfer, Docker UI management, and a bonus static website. Every service is built from handcrafted Dockerfiles using Debian Bullseye (or closely related) base images, ensuring full ownership of the software stack and transparent reproducibility.
 
 ## Table of Contents
-- [Project Summary](#project-summary)
+- [Project Summary](#summary)
 - [High-Level Topology](#high-level-topology)
 - [Technology Stack](#technology-stack)
 - [Compose Orchestration](#compose-orchestration)
@@ -71,12 +71,12 @@ This repository hosts a Docker Compose-based infrastructure inspired by the 42 "
 └────────────────────────┘
 
 
-┌────────────────────────┐
-│       FTP (21,21100+)  │
-│────────────────────────│
-│ • Accessible externally│
+┌──────────────────────────┐
+│       FTP (21,21100+)    │
+│──────────────────────────│
+│ • Accessible externally  │
 │ • Linked to /var/www/html│
-└────────────────────────┘
+└──────────────────────────┘
 
 ┌────────────────────────┐
 │    Adminer (8080)      │
@@ -92,11 +92,13 @@ This repository hosts a Docker Compose-based infrastructure inspired by the 42 "
 │ • Uses /var/run/docker.sock  │
 └──────────────────────────────┘
 
-              🕸 Shared Docker Network: `inception`
-────────────────────────────────────────────────────────────
+
+
+               Shared Docker Network: `inception`
+────────────────────────────────────────────────────────────────
 All containers can reach each other by name (DNS resolution).
 Example: `wordpress` can reach `mariadb` using `DB_HOST=mariadb`
-────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────
 ```
 The ASCII diagram above is duplicated from `overview.txt` so that the README remains self-contained.
 
@@ -345,10 +347,3 @@ The helper script `./build_script.sh` rebuilds the stack and prints logs from ev
 - **FTP passive mode fails** – Open firewall ports 21100–21110 or adjust the passive range in `vsftpd.conf`.
 - **Browser warns about certificate** – Import `/etc/ssl/certs/nginx.crt` from inside the NGINX container or configure a trusted certificate.
 - **Portainer cannot connect to Docker** – Ensure `/var/run/docker.sock` exists on the host and Docker is running with sufficient permissions.
-
-## Further Improvements
-- Provide scripts to switch volume host paths dynamically based on environment variables.
-- Replace self-signed TLS with ACME automation (e.g., certbot using DNS-01 challenges).
-- Add monitoring (Prometheus + Grafana) to observe service health.
-- Replace FTP with SFTP or WebDAV for encrypted file transfers.
-- Expand the static site with build tooling (Eleventy, Hugo) for richer bonus content.
